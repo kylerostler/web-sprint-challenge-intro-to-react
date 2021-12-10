@@ -35,13 +35,13 @@ console.log(characters)
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      {/* {characters.map((ch) => {
+      {characters.map((ch) => {
         return <Character key={ch.id} info={ch} action={openDetails} />
       })
      }
      {
        currentCharId && <Details characterId={currentCharId} close={closeDetails} />
-     } */}
+     }
     </div>
   );
 }

@@ -9,7 +9,7 @@ padding: 8px;
 background-color: #fffdd0;
 `
 // Write your Character component here
-export default function Friend() {
+export default function Friend(props) {
     const { info, action } = props;
 
     return (
