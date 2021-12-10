@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Axios from 'axios';
-
+import Character from './components/Character'
+import Details from './components/Details'
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -18,7 +19,7 @@ const [currentCharId, setCurrentCharId] = useState('1');
   const closeDetails = () => {
     setCurrentCharId(null)
   }
-  
+
 useEffect(() => {
   Axios.get(`https://swapi.dev/api/people`)
     .then(response => {
@@ -34,6 +35,13 @@ console.log(characters)
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
+      {/* {characters.map((ch) => {
+        return <Character key={ch.id} info={ch} action={openDetails} />
+      })
+     }
+     {
+       currentCharId && <Details characterId={currentCharId} close={closeDetails} />
+     } */}
     </div>
   );
 }
