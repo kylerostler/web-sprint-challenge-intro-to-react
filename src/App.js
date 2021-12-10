@@ -36,7 +36,7 @@ useEffect(() => {
     <div className="App">
       <h1 className="Header">Characters</h1>
       {characters.map((ch) => {
-        return <Character info={ch} action={openDetails} />
+        return <Character key={ch.url} info={ch} action={openDetails} />
       })
      }
      {
