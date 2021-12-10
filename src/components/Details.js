@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styled from 'styled-components';
 import Axios from 'axios';
+import styled from 'styled-components';
 
 const StyledDetails = styled.div`
 border-radius: 1px;
@@ -14,16 +14,16 @@ export default function Details(props) {
     const [details, setDetails] = useState(null);
 
     useEffect(() => {
-        Axios.get(`https://swapi.dev/api/people`)
+        Axios.get(`${characterId}`)
           .then(response => {
             setDetails(response.data)
           })
           .catch(error => {
-            debugger
+            console.log(error)
           })
       }, [characterId])
 
-      console.log(details[1].name)
+  
 
     return (
         <StyledDetails>
@@ -32,13 +32,11 @@ export default function Details(props) {
                 details && 
                 <>
                 <p>{details.name} was born in {details.birth_year}</p>
-                <p>They are {details.gender}</p>
-                <p>They appear in:</p>
-                {/* <ul>
-                    {
-                        details.films.map((film, idx) => <li key={idx}>{film}</li>)
-                    }
-                </ul> */}
+                <p>Gender: {details.gender}</p>
+                <p>Height: {details.height}</p>
+                <p>Mass: {details.mass}</p>
+                <p>eye-color: {details.eye_color}</p>
+                <p>skin color: {details.skin_color}</p>
                 </>
             }
             <button onClick={close}>Close details</button>
