@@ -12,8 +12,8 @@ const [currentCharId, setCurrentCharId] = useState('1');
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
-  const openDetails = id => {
-    setCurrentCharId(id)
+  const openDetails = url => {
+    setCurrentCharId(url)
   }
 
   const closeDetails = () => {
@@ -26,17 +26,16 @@ useEffect(() => {
       setCharacters(response.data);
     })
     .catch(error => {
-      console.log(error)
+      debugger
     })
 }, [])
 
-console.log(characters)
 
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
       {characters.map((ch) => {
-        return <Character key={ch.id} info={ch} action={openDetails} />
+        return <Character key={ch.url} info={ch} action={openDetails} />
       })
      }
      {

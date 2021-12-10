@@ -9,7 +9,7 @@ padding: 8px;
 background-color: #fffdd0;
 `
 // Write your Character component here
-export default function Friend(props) {
+export default function Details(props) {
     const { characterId, close } = props;
     const [details, setDetails] = useState(null);
 
@@ -19,9 +19,11 @@ export default function Friend(props) {
             setDetails(response.data)
           })
           .catch(error => {
-            console.log(error)
+            debugger
           })
       }, [characterId])
+
+      console.log(details[1].name)
 
     return (
         <StyledDetails>
@@ -39,7 +41,7 @@ export default function Friend(props) {
                 </ul> */}
                 </>
             }
-            <button onclick={close}>Close details</button>
+            <button onClick={close}>Close details</button>
         </StyledDetails>
     )
 }

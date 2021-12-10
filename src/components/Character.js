@@ -9,13 +9,13 @@ padding: 8px;
 background-color: #fffdd0;
 `
 // Write your Character component here
-export default function Friend(props) {
+export default function Character(props) {
     const { info, action } = props;
 
     return (
         <StyledCharacter>
             {info.name}
-            <button onClick={() => action(info.id)}>
+            <button onClick={() => action(info.url)}>
                 See details
             </button>
         </StyledCharacter>
